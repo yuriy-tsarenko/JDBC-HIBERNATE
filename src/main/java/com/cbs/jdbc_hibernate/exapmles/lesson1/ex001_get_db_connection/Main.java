@@ -1,4 +1,4 @@
-package com.cbs.jdbc_hibernate.exapmles.ex001_get_db_connection;
+package com.cbs.jdbc_hibernate.exapmles.lesson1.ex001_get_db_connection;
 
 import org.apache.log4j.Logger;
 

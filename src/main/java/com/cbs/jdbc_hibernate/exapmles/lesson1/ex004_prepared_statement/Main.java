@@ -1,4 +1,4 @@
-package com.cbs.jdbc_hibernate.exapmles.ex004_prepared_statement;
+package com.cbs.jdbc_hibernate.exapmles.lesson1.ex004_prepared_statement;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

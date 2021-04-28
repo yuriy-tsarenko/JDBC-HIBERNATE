@@ -1,9 +1,10 @@
-package com.cbs.jdbc_hibernate.exapmles.ex003_result_set;
+package com.cbs.jdbc_hibernate.exapmles.lesson1.ex003_result_set;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.apache.log4j.Logger;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,7 +25,8 @@ public class DataBaseConnector {
     private static final String TIMEZONE = "UTC";
     private static final String USE_LEGACY_DT_CODE = "false";
     private static final String LOGIN = "root";
-    private static final String PASSWORD = "ваш пароль?";
+    private static final String PASSWORD = "Mysql22061993";
+    private static final String CHAR = "'";
 
     public DataBaseConnector() {
     }
@@ -37,6 +39,36 @@ public class DataBaseConnector {
                 + "useLegacyDatetimeCode=" + USE_LEGACY_DT_CODE
                 + "&"
                 + "serverTimezone=" + TIMEZONE;
+    }
+
+    public void createClient(Integer customerNumber, String customerName, String contactLastName,
+                             String contactFirstName, String phone, String addressLineOne, String addressLineTwo,
+                             String city, String state, String postalCode, String country,
+                             Integer salesRepEmployeeNumber, BigDecimal creditLimit) {
+
+        try (Connection connection = DriverManager.getConnection(createURL(), LOGIN, PASSWORD);
+             Statement statement = connection.createStatement()) {
+            statement.execute("insert into"
+                    + " customers(customerNumber, customerName, contactLastName, contactFirstName, phone, addressLine1,"
+                    + "addressLine2, city, state, postalCode, country, salesRepEmployeeNumber, creditLimit)"
+                    + "values ("
+                    + CHAR + customerNumber + CHAR + ","
+                    + CHAR + customerName + CHAR + ","
+                    + CHAR + contactLastName + CHAR + ","
+                    + CHAR + contactFirstName + CHAR + ","
+                    + CHAR + phone + CHAR + ","
+                    + CHAR + addressLineOne + CHAR + ","
+                    + CHAR + addressLineTwo + CHAR + ","
+                    + CHAR + city + CHAR + ","
+                    + CHAR + state + CHAR + ","
+                    + CHAR + postalCode + CHAR + ","
+                    + CHAR + country + CHAR + ","
+                    + CHAR + salesRepEmployeeNumber + CHAR + ","
+                    + CHAR + creditLimit + CHAR
+                    + ")");
+        } catch (SQLException e) {
+            log.error(e);
+        }
     }
 
     public List<Customer> getAllClients() {
@@ -58,7 +90,6 @@ public class DataBaseConnector {
                     key = metaData.getColumnLabel(i);
                     row.put(key, value);
                 }
-                System.out.println(row);
                 String jsonMap = gson.toJson(row);
                 Customer customer = gson.fromJson(jsonMap, Customer.class);
                 clients.add(customer);

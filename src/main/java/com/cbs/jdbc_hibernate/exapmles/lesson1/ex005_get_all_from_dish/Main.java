@@ -1,4 +1,4 @@
-package com.cbs.jdbc_hibernate.exapmles.ex005_get_all_from_dish;
+package com.cbs.jdbc_hibernate.exapmles.lesson1.ex005_get_all_from_dish;
 
 import java.sql.Connection;
 import java.sql.Date;

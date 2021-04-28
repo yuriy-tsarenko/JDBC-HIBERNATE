@@ -1,4 +1,4 @@
-package com.cbs.jdbc_hibernate.exapmles.ex002_statement;
+package com.cbs.jdbc_hibernate.exapmles.lesson1.ex002_statement;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

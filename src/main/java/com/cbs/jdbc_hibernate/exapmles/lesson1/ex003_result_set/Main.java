@@ -1,4 +1,4 @@
-package com.cbs.jdbc_hibernate.exapmles.ex003_result_set;
+package com.cbs.jdbc_hibernate.exapmles.lesson1.ex003_result_set;
 
 import java.util.List;
 

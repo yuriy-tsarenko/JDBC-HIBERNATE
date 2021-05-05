@@ -1,4 +1,4 @@
-package com.cbs.jdbc_hibernate.exapmles.lesson3.entity;
+package com.cbs.jdbc_hibernate.exapmles.lesson4.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Getter
@@ -22,7 +21,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Entity
 @Table(name = "customers")
-public class Customer implements Serializable {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

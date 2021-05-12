@@ -10,10 +10,13 @@ public class Main {
 
     public static void main(String[] args) {
         List<Product> all = productService.getAll();
-        Product product = productService.getById("S10_949");
-        all.forEach(System.out::println);
-        productService.delete(product);
-        product = productService.getById("S10_949");
+        Product product = productService.getById("S10_1678");
+        System.out.println(product);
+        product.setProductName("UPDATED3");
+
+        productService.update(product);
+
+        product = productService.getById("S10_1678");
         System.out.println(product);
 
 

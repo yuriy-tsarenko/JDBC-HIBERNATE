@@ -24,7 +24,7 @@ public class ProductService {
     //второй вариант как получить все записи таблицы
     public List<Product> getAll() {
         Session session = sessionUtil.getSession();
-        List<Product> products = session.createQuery("from Product").list();
+        List<Product> products = session.createQuery("from Product", Product.class).list();
         sessionUtil.close();
         return products;
     }

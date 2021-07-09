@@ -1,18 +1,17 @@
-package com.cbs.jdbc_hibernate.exapmles.lesson2.app.db_connector;
+package com.cbs.jdbc_hibernate.exapmles.lesson2.demo_app.db_connector;
 
-import org.apache.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import static com.cbs.jdbc_hibernate.exapmles.lesson2.app.util.Constants.BASE_URL;
-import static com.cbs.jdbc_hibernate.exapmles.lesson2.app.util.Constants.DB_NAME;
-import static com.cbs.jdbc_hibernate.exapmles.lesson2.app.util.Constants.LOGIN;
-import static com.cbs.jdbc_hibernate.exapmles.lesson2.app.util.Constants.PASSWORD;
-import static com.cbs.jdbc_hibernate.exapmles.lesson2.app.util.Constants.TIMEZONE;
-import static com.cbs.jdbc_hibernate.exapmles.lesson2.app.util.Constants.USE_LEGACY_DT_CODE;
+import static com.cbs.jdbc_hibernate.exapmles.lesson2.demo_app.util.Constants.BASE_URL;
+import static com.cbs.jdbc_hibernate.exapmles.lesson2.demo_app.util.Constants.DB_NAME;
+import static com.cbs.jdbc_hibernate.exapmles.lesson2.demo_app.util.Constants.LOGIN;
+import static com.cbs.jdbc_hibernate.exapmles.lesson2.demo_app.util.Constants.PASSWORD;
+import static com.cbs.jdbc_hibernate.exapmles.lesson2.demo_app.util.Constants.TIMEZONE;
+import static com.cbs.jdbc_hibernate.exapmles.lesson2.demo_app.util.Constants.USE_LEGACY_DT_CODE;
 
 
 public class DataBaseConnector {

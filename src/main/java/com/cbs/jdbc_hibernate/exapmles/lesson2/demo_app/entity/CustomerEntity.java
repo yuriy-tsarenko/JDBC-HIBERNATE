@@ -1,4 +1,4 @@
-package com.cbs.jdbc_hibernate.exapmles.lesson2.app.entity;
+package com.cbs.jdbc_hibernate.exapmles.lesson2.demo_app.entity;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @ToString
 @Getter
 @Setter
-public class Customer {
+public class CustomerEntity {
 
     @SerializedName("customerNumber")
     private Integer customerNumber;

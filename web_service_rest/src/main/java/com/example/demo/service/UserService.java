@@ -8,6 +8,9 @@ import com.example.demo.proxy.ProxyFactory;
 import lombok.RequiredArgsConstructor;
 import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,6 +34,7 @@ public class UserService {
 
     private final ProxyFactory proxyFactory;
 
+    @Cacheable("users")
     public ResponseEntity<List<UserDto>> getAllUsers() {
         Proxy proxy = proxyFactory.getProxy(baseUrl);
         Response response = proxy.getAll();
@@ -42,6 +46,7 @@ public class UserService {
                 .body(responseDto.getUsers());
     }
 
+    @Cacheable("users")
     public ResponseEntity<UserDto> getUserById(Integer id) {
         Proxy proxy = proxyFactory.getProxy(baseUrl);
         Response response = proxy.getById(id, TOKEN_PREFIX + token);
@@ -53,6 +58,7 @@ public class UserService {
                 .body(responseDto.getUser());
     }
 
+    @CachePut("users")
     public ResponseEntity<UserDto> createUser(UserDto dto) {
         Proxy proxy = proxyFactory.getProxy(baseUrl);
         Response response = proxy.create(dto, TOKEN_PREFIX + token);
@@ -63,6 +69,7 @@ public class UserService {
         return ResponseEntity.ok().body(responseDto.getUser());
     }
 
+    @CachePut("users")
     public ResponseEntity<UserDto> updateUser(Integer id, UserDto dto) {
         Proxy proxy = proxyFactory.getProxy(baseUrl);
         Response response = proxy.update(id, dto, TOKEN_PREFIX + token);
@@ -73,6 +80,7 @@ public class UserService {
         return ResponseEntity.ok().body(responseDto.getUser());
     }
 
+    @CacheEvict("users")
     public ResponseEntity<?> deleteUser(Integer id) {
         Proxy proxy = proxyFactory.getProxy(baseUrl);
         Response response = proxy.delete(id, TOKEN_PREFIX + token);
